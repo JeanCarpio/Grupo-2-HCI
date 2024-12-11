@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(177, 177, 177);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(9, 255, 0, 0.2);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .modal-content {
+            margin-bottom: 20px;
+        }
+        .modal-buttons {
+            text-align: center;
+        }
+        .modal-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="head">
+        <div class="logo">
+            <a href="#">
+                <img src="img/GZ2XD.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <nav class="navbar">
+            <a href="#inicio" onclick="openModal('inicioModal')">Inicio</a>
+            <a href="#iniciar-sesion" onclick="openModal('loginModal')">Iniciar Sesión</a>
+            <a href="#registrarse" onclick="openModal('registerModal')">Registrarse</a>
+        </nav>
+    </header>
+
+    <div class="modal" id="inicioModal">
+        <div class="modal-header">Bienvenido</div>
+        <div class="modal-content">
+            Esta es la página de inicio. Explora todo lo que ofrecemos.
+        </div>
+        <div class="modal-buttons">
+            <button onclick="closeModal('inicioModal')">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-header">Iniciar Sesión</div>
+        <div class="modal-content">
+            <form>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="modal-buttons">
+            <button onclick="closeModal('loginModal')">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-header">Registrarse</div>
+        <div class="modal-content">
+            <form>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="modal-buttons">
+            <button onclick="closeModal('registerModal')">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
+<section id="inicio" class="content header">
+    <h2> <img src="img/logogz.png" alt=""></h2>
+    <p>
+        En Gamer Zone, entendemos que ser un verdadero gamer no solo se trata de jugar, sino de vivir la experiencia completa. 
+        Es por eso que ofrecemos una plataforma pensada para ti, 
+        donde puedes encontrar las mejores consolas, videojuegos, accesorios y mucho más.
+    </p>
+    <a href="#" class="btn">Explorar</a>
+</section>
+
+<section id="productos" class="content sau">
+    <h2> <img src="img/Ofrecemos.png" alt=""></h2>
+    <p>
+        En Gamer Zone, encontrarás las mejores consolas de última generación, 
+        videojuegos de todos los géneros y accesorios gaming, todo a precios increíbles.  
+        ¡Todo lo que un gamer necesita en un solo lugar!
+    </p>
+
+    <div class="box-container">
+        <div class="box">
+            <i class="fas fa-gamepad"></i>
+            <h3>Videojuegos</h3>
+            <p>Explora los mejores juegos del momento.</p>
+        </div>
+    
+        <div class="box">
+            <i class="fas fa-tags"></i>
+            <h3>Promociones</h3>
+            <p>Descuentos exclusivos para ti.</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-tv"></i>
+            <h3>Consolas</h3>
+            <p>Encuentra la consola perfecta para tu diversión.</p>
+        </div>
+    </div>
+</section>
+
+<section class="content reviews">
+    <h2> <img src="img/Reseñas.png" alt=""></h2>
+    <div class="reviews-container">
+        <div class="review">
+            <img src="img/Chica gamer.jpg" alt="Foto de Sophia" class="user-photo">
+            <div class="review-text">
+                <h3>Sophia</h3>
+                <p>Excelente servicio, los productos superaron mis expectativas. ¡Muy recomendado!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="img/rojo jugando" alt="Foto de Altair" class="user-photo">
+            <div class="review-text">
+                <h3>Altair</h3>
+                <p>Tiene los mejores precios, pero me gustaria que implementaran más cosas.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="img/adultojugando" alt="Foto de Alcaeda" class="user-photo">
+            <div class="review-text">
+                <h3>Alcaeda</h3>
+                <p>La atención al cliente fue maravillosa, aunque los tiempos de entrega podrían mejorar.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="footer-info">
+    <div class="info-section">
+        <div class="info-column">
+            <h3>CONTACTOS</h3>
+            <p>Email: GamerZon4@gmail.com</p>
+            <p>Teléfono: +593 987654321</p>
+            <p>Dirección: Manta, AV 4 de noviembre</p>
+        </div>
+        <div class="info-column">
+            <h3>CATEGORIAS</h3>
+            <p>Consolas</p>
+            <p>Juegos Digitales</p>
+            <p>Juegos Fisicos</p>
+            <p>Nintendo Switch</p>
+            <p>Promociones</p>
+            <p>Accesorios</p>
+        </div>
+        <div class="info-column">
+            <h3>NUESTRAS REDES</h3>
+            <p><a href="#">Facebook</a></p>
+            <p><a href="#">Instagram</a></p>
+            <p><a href="#">Twitter</a></p>
+            <p><a href="#">TikTok</a></p>
+        </div>
+    </div>
+</section>
+</body>
+</html>
